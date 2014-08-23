@@ -16,12 +16,12 @@ from livestreamer import (Livestreamer, StreamError, PluginError,
 from livestreamer.cache import Cache
 from livestreamer.stream import StreamProcess
 
-from .argparser import parser
-from .compat import stdout, is_win32
-from .console import ConsoleOutput
-from .constants import CONFIG_FILES, PLUGINS_DIR, STREAM_SYNONYMS
-from .output import FileOutput, PlayerOutput
-from .utils import NamedPipe, HTTPServer, ignored, progress, stream_to_url
+from livestreamer_cli.argparser import parser
+from livestreamer_cli.compat import stdout, is_win32
+from livestreamer_cli.console import ConsoleOutput
+from livestreamer_cli.constants import CONFIG_FILES, PLUGINS_DIR, STREAM_SYNONYMS
+from livestreamer_cli.output import FileOutput, PlayerOutput
+from livestreamer_cli.utils import NamedPipe, HTTPServer, ignored, progress, stream_to_url
 
 ACCEPTABLE_ERRNO = (errno.EPIPE, errno.EINVAL, errno.ECONNRESET)
 QUIET_OPTIONS = ("json", "stream_url", "subprocess_cmdline", "quiet")
@@ -854,3 +854,6 @@ def main():
         authenticate_twitch_oauth()
     else:
         parser.print_help()
+
+if __name__ == "__main__":
+    main()
